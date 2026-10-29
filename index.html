@@ -38,10 +38,11 @@
                     <h2>Login Here</h2>
                     <input type="email" name="email" placeholder="Enter Email Here">
                     <input type="password" name="" placeholder="Enter Password Here">
-                    <button class="btn" type="button">Login</button>
+                    <button class="btn" type="button"
+                    onclick="loginUser()">Login</button>
 
                     <p class="link">don't have an account<br>
-                    <a href="#">Sign up </a> here</a></p>
+                    <a href="#" onclick="showSignup(); return false;">Sign up</a></p>
                     <p class="liw">Log in with</p>
 
                     <div class="icon">
@@ -58,5 +59,76 @@
         </div>      
     </div>
     <script scr="https://upkg.com/ionicons@5.4.0/dist/ionicond.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAN0YJPkz-q1VeZeujTxG6Lt3nhemPhHpo",
+    authDomain: "iskon-ichalkaranji.firebaseapp.com",
+    projectId: "iskon-ichalkaranji",
+    storageBucket: "iskon-ichalkaranji.firebasestorage.app",
+    messagingSenderId: "251659589901",
+    appId: "1:251659589901:web:58306a77c248d22a52f844",
+    measurementId: "G-8MQLM3G304"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+</script>
+    <script>
+function loginUser() {
+  const email = document.querySelector('form input[type="email"]').value.trim();
+  const password = document.querySelector('form input[type="password"]').value;
+
+  if (email === "" || password === "") {
+    alert("Please enter your email and password");
+    return;
+  }
+
+  auth.signInWithEmailAndPassword(email, password)
+    .then(() => {
+      alert("Login successful! Welcome to ISKCON");
+    })
+    .catch((error) => {
+      alert("Login failed: " + error.message);
+    });
+}
+</script>
+<div id="signupBox" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); width:300px; padding:25px; background:#111; border:2px solid #ff7200; border-radius:12px; z-index:1000; color:white; font-family:Arial,sans-serif;">
+    <h2 style="color:#ff7200; text-align:center;">Create Account</h2>
+
+    <input id="signupName" type="text" placeholder="Enter Your Name" style="width:100%; padding:10px; margin:8px 0; box-sizing:border-box;">
+
+    <input id="signupEmail" type="email" placeholder="Enter Your Email" style="width:100%; padding:10px; margin:8px 0; box-sizing:border-box;">
+
+    <input id="signupPassword" type="password" placeholder="Create Password" style="width:100%; padding:10px; margin:8px 0; box-sizing:border-box;">
+
+    <button type="button" onclick="createAccount()" style="width:100%; padding:10px; margin-top:10px; background:#ff7200; color:white; border:0; border-radius:6px; cursor:pointer;">Create Account</button>
+
+    <button type="button" onclick="closeSignup()" style="width:100%; padding:8px; margin-top:8px; cursor:pointer;">Close</button>
+</div>
+
+<script>
+function showSignup() {
+    document.getElementById("signupBox").style.display = "block";
+}
+
+function closeSignup() {
+    document.getElementById("signupBox").style.display = "none";
+}
+
+function createAccount() {
+    const name = document.getElementById("signupName").value.trim();
+    const email = document.getElementById("signupEmail").value.trim();
+    const password = document.getElementById("signupPassword").value;
+
+    if (!name || !email || !password) {
+        alert("Please fill in all fields!");
+        return;
+    }
+
+    alert("Demo form completed! Real account creation is not connected yet.");
+}
+</script>
 </body>
 </html>            
