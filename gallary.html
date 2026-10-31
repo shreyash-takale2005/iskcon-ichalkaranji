@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery | ISKCON Ichalkaranji</title>
+
+<style>
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fffaf0;
+    color: #333;
+}
+header {
+    background: #172b4d;
+    color: white;
+    text-align: center;
+    padding: 35px 15px;
+}
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 15px;
+}
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px #00000012;
+}
+.photo {
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f4e5c8;
+    font-size: 55px;
+}
+.card h3 {
+    color: #a45b13;
+    padding: 0 15px;
+}
+.card p { padding: 0 15px 12px; }
+.back {
+    display: inline-block;
+    background: #e69b32;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 7px;
+    text-decoration: none;
+    margin-top: 25px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>📸 Devotional Gallery</h1>
+    <p>ISKCON Ichalkaranji</p>
+    <p>Beautiful moments of Krishna consciousness</p>
+</header>
+
+<div class="container">
+
+    <div class="gallery">
+
+        <div class="card">
+            <div class="photo">🙏</div>
+            <h3>Deity Darshan</h3>
+            <p>Beautiful darshan of Sri Sri Radha Krishna.</p>
+        </div>
+
+        <div class="card">
+            <div class="photo">🎉</div>
+            <h3>Temple Festivals</h3>
+            <p>Celebrating festivals with devotion and joy.</p>
+        </div>
+
+        <div class="card">
+            <div class="photo">🎵</div>
+            <h3>Hare Krishna Kirtan</h3>
+            <p>Moments of congregational chanting.</p>
+        </div>
+
+        <div class="card">
+            <div class="photo">🌸</div>
+            <h3>Temple Activities</h3>
+            <p>Devotional programs and community activities.</p>
+        </div>
+
+    </div>
+
+    <a href="dashboard.html" class="back">← Back to Dashboard</a>
+
+</div>
+</body>
+</html>
