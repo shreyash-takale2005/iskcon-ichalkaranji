@@ -77,8 +77,8 @@
 </script>
     <script>
 function loginUser() {
-  const email = document.querySelector('form input[type="email"]').value.trim();
-  const password = document.querySelector('form input[type="password"]').value;
+  const email = document.querSelector('.form input[type="email"]').value.trim();
+  const password = document.querySelector('.form input[type="password"]').value;
 
   if (email === "" || password === "") {
     alert("Please enter your email and password");
