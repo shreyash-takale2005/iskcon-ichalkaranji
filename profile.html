@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Profile | ISKCON Ichalkaranji</title>
+
+<style>
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fffaf0;
+    color: #333;
+}
+header {
+    background: #172b4d;
+    color: white;
+    text-align: center;
+    padding: 35px 15px;
+}
+.container {
+    max-width: 650px;
+    margin: 30px auto;
+    padding: 15px;
+}
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #00000012;
+}
+h2 { color: #a45b13; }
+.info {
+    padding: 12px;
+    margin: 10px 0;
+    background: #fffaf0;
+    border-radius: 7px;
+}
+.back {
+    display: inline-block;
+    background: #e69b32;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 7px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>👤 My Profile</h1>
+    <p>ISKCON Ichalkaranji</p>
+</header>
+
+<div class="container">
+    <div class="card">
+        <h2>Welcome, Devotee!</h2>
+        <p>Your account information:</p>
+
+        <div class="info">
+            <strong>Email:</strong>
+            <span id="userEmail">Loading...</span>
+        </div>
+
+        <div class="info">
+            <strong>Account:</strong>
+            <span>Registered Devotee</span>
+        </div>
+
+        <p>Hare Krishna! 🙏</p>
+    </div>
+
+    <a href="dashboard.html" class="back">← Back to Dashboard</a>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+    // Keep the same Firebase config used in dashboard.html
+};
+
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        document.getElementById("userEmail").textContent = user.email;
+    } else {
+        window.location.href = "index.html";
+    }
+});
+</script>
+
+</body>
+</html>
